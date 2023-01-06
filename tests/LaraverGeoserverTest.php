@@ -4,7 +4,6 @@ namespace LaravelGeoserver\LaravelGeoserver\Tests;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Http;
 
 use LaravelGeoserver\LaravelGeoserver\GeoserverClient;
 use LaravelGeoserver\LaravelGeoserver\LaravelGeoserverServiceProvider;

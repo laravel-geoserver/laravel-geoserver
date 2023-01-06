@@ -198,7 +198,6 @@ class GeoserverClient
             $ds = $response->dataStore;
 
             if ($ds->type == 'PostGIS') {
-
                 $entries = collect($ds->connectionParameters->entry)->mapWithKeys(function ($item) {
                     return [$item->{'@key'} => isset($item->{'$'}) ? $item->{'$'} : ''];
                 })->toArray();

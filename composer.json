@@ -1,0 +1,55 @@
+{
+    "name": "laravel-geoserver/laravel-geoserver",
+    "description": "Laravel geoserver REST wrapper",
+    "keywords": [
+        "laravel-geoserver"
+    ],
+    "homepage": "https://github.com/laravel-geoserver/laravel-geoserver",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "laravel-geoserver",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.18.0",
+        "phpunit/phpunit": "^9.5.27",
+        "guzzlehttp/guzzle": "^7.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelGeoserver\\LaravelGeoserver\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelGeoserver\\LaravelGeoserver\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ],
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelGeoserver\\LaravelGeoserver\\LaravelGeoserverServiceProvider"
+            ],
+            "aliases": {
+                "GeoserverClient": "LaravelGeoserver\\LaravelGeoserver\\Facades\\LaravelGeoserverClientFacade"
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+## Test environment
+## This docker compose starts the necessary services to run integration tests
+
+version: "2.1"
+
+networks:
+    internal:
+
+services:
+    geoserver:
+        image: kartoza/geoserver:2.22.0
+        environment:
+            - GEOSERVER_ADMIN_PASSWORD=12345
+            - GEOSERVER_ADMIN_USER=admin
+        ports:
+            - "8181:8080"
+        networks:
+            - internal
+    postgis:
+        image: postgis/postgis:15-3.3-alpine
+        environment:
+            - ALLOW_IP_RANGE=0.0.0.0/0
+            - POSTGRES_USER=postgis
+            - POSTGRES_PASSWORD=12345
+            - POSTGRES_DBNAME=postgis
+        ports:
+            - "55432:5432"
+        networks:
+            - internal
